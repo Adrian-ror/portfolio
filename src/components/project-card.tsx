@@ -16,43 +16,40 @@ interface Props {
 
 export function ProjectCard({ title, description, tags, link }: Props) {
   return (
-    <Card className="flex flex-col overflow-hidden border border-muted p-3">
-      <CardHeader className="">
-        <div className="space-y-1">
-          <CardTitle className="text-base">
+    <Card className="flex flex-col overflow-hidden border border-gray-300 rounded-lg shadow-lg p-4 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <CardHeader className="mb-2">
+        <div className="space-y-2">
+          <CardTitle className="text-lg font-semibold text-gray-900">
             {link ? (
               <a
                 href={link}
                 target="_blank"
-                className="inline-flex items-center gap-1 hover:underline"
+                className="inline-flex items-center gap-2 hover:underline"
               >
-                {title}{" "}
-                <span className="size-1 rounded-full bg-green-500"></span>
+                {title}
+                <span className="w-2 h-2 rounded-full bg-green-500"></span>
               </a>
             ) : (
               title
             )}
           </CardTitle>
-          <div className="hidden font-mono text-xs underline print:visible">
+          <div className="font-mono text-xs text-gray-500 underline hidden print:inline">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
-          <CardDescription className="font-mono text-xs">
+          <CardDescription className="font-mono text-sm text-gray-700">
             {description}
           </CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="mt-auto flex">
-        <div className="mt-2 flex flex-wrap gap-1">
-          {tags.map((tag) => (
-            <Badge
-              className="px-1 py-0 text-[10px]"
-              variant="secondary"
-              key={tag}
-            >
-              {tag}
-            </Badge>
-          ))}
-        </div>
+      <CardContent className="mt-auto flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Badge
+            key={tag}
+            className="px-4 py-2 bg-teal-800 text-white font-bold border-2 border-teal-700 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110 hover:bg-teal-700 hover:text-gray-200 hover:rotate-1"
+          >
+            {tag}
+          </Badge>
+        ))}
       </CardContent>
     </Card>
   );
