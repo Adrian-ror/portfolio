@@ -108,7 +108,7 @@ export const RESUME_DATA = {
       logo: CommerceHub,
       link: {
         label: "task-log.com",
-        href: "https://tfg-frontend-alpha.vercel.app/",
+        href: "https://commercehub-alpha.vercel.app/",
       },
     },
 
